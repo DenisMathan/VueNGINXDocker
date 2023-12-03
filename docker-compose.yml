@@ -1,0 +1,13 @@
+version: '3.6'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: app/Dockerfile
+      args:
+        - SSH_KEY=${SSH_KEY}
+        - DATE_STAMP=${DATE_STAMP}
+    container_name: app
+    restart: always
+    ports:
+      - "8003:8080"
